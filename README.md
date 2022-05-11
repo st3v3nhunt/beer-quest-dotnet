@@ -21,8 +21,9 @@ for development) execute `dotnet watch` in the project's directory.
 
 The application has been containerised and can be run with Docker. Running the
 following commands from the repo's root directory will move into the project
-directory, build an image and then run the image, mapping the local machine's
-port 5000 to the container's port 80.
+directory, build an image and then run the image (with the name
+`beer-quest-dotnet`), mapping the local machine's port 5000 to the container's
+port 80. When the container exits it will be removed.
 
 If all commands are successful the application will be available at
 [http://localhost:5000](http://localhost:5000) from where the `/venues`
@@ -31,7 +32,7 @@ endpoint can be explored.
 ```
 cd BeerQuestApi
 docker build -t beer-quest-dotnet:latest .
-docker run -p 5000:80 beer-quest-dotnet:latest
+docker run --rm --name beer-quest-dotnet -p 5000:80 beer-quest-dotnet:latest
 ```
 
 If port `5000` is not available it can be changed to another available port.
