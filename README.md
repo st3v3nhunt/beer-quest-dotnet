@@ -5,6 +5,10 @@
 > implementation for an X-Lab Engineering interview
 > challenge
 
+## Pre-requisites
+
+* [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+
 ## Running the application
 
 If you just want to start the application execute `dotnet run` in the project's
@@ -12,6 +16,25 @@ directory.
 
 If you want to hot reload the application as it is being changed (very useful
 for development) execute `dotnet watch` in the project's directory.
+
+## Running the application with Docker
+
+The application has been containerised and can be run with Docker. Running the
+following commands from the repo's root directory will move into the project
+directory, build an image and then run the image, mapping the local machine's
+port 5000 to the container's port 80.
+
+If all commands are successful the application will be available at
+[http://localhost:5000](http://localhost:5000) from where the `/venues`
+endpoint can be explored.
+
+```
+cd BeerQuestApi
+docker build -t beer-quest-dotnet:latest .
+docker run -p 5000:80 beer-quest-dotnet:latest
+```
+
+If port `5000` is not available it can be changed to another available port.
 
 ## Testing the application
 

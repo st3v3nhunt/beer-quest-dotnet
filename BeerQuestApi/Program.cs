@@ -28,8 +28,6 @@ if (app.Environment.IsDevelopment())
     _ = app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Venues API v1"));
 }
 
-app.UseHttpsRedirection();
-
 app.MapGet("/venues", VenuesHandler.GetVenues);
 app.MapGet("/venues/{lat}/{lng}", VenuesHandler.GetVenuesByLocation);
 
